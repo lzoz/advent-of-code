@@ -7,12 +7,13 @@ proc readInput(filepath: string): seq[string] =
         result.add(tmp)
 
 proc countTrees(input: seq[string], r, d: int): int =
-    var line = 0
-    var idx = 0
+    var line, idx: int
+    var maxLine = input.len
+    var maxIdx = input[0].len
     while true:
         line = line + d
-        if line >= input.len: break
-        idx = (idx+r) mod 31
+        if line >= maxLine: break
+        idx = (idx+r) mod maxIdx
         if input[line][idx] == '#':
             result = result + 1
 

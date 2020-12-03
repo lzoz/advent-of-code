@@ -7,12 +7,13 @@ proc readInput(filepath: string): seq[string] =
         result.add(tmp)
 
 proc solve(input: seq[string]): int =
-    var line = 0
-    var idx = 0
+    var line, idx: int
+    let maxLine = input.len
+    let maxIdx = input[0].len 
     while true:
         line = line + 1
-        if line >= input.len: break
-        idx = (idx+3) mod 31 # (idx + 3) mod len(input[line])
+        if line >= maxLine: break
+        idx = (idx+3) mod maxIdx
         if input[line][idx] == '#':
             result = result + 1
 
